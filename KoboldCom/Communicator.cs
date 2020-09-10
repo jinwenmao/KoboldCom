@@ -29,7 +29,8 @@ namespace KoboldCom
         /// <param name="analyzers">消息解析方法集合</param>
         public Communicator(ICommunication com, IAnalyzerCollection analyzers)
         {
-            Com = com ?? throw new NullReferenceException("no reference communication module was initialized");
+            Com = com ;
+            // throw new NullReferenceException("no reference communication module was initialized");
 
             Analyzers = analyzers;
             Com.OnDataReceived += new DataReceivedHandler(ComDataReceived);

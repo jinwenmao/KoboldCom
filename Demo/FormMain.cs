@@ -28,7 +28,8 @@ namespace Demo
             MyProtocols results = communicator.Analyzers as MyProtocols;
             if (results != null)
             {
-                results.ProtocolText.OnDataAnalyzed += ProtocolText_OnDataAnalyzed; ;
+                results.ProtocolText.OnDataAnalyzed +=ProtocolText_OnDataAnalyzed;
+              //results.ProtocolText.OnDataAnalyzed += ProtocolText_OnDataAnalyzed; ;
                 results.ProtocolBinary.OnDataAnalyzed += ProtocolBinary_OnDataAnalyzed;
             }
         }
@@ -50,6 +51,9 @@ namespace Demo
                     builder.Append(communicator.Com.Encoding.GetString(bytes));
                 }
                 textBoxRaw.AppendText(builder.ToString());
+                string str;
+                str = Encoding.Default.GetString(bytes);
+                textBoxRaw.AppendText(str);
             });
         }
 
